@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subin Min — Social Policy Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#00274C;
+    --maize:#FFCB05;
+    --blue-soft:#12507e;
+    --ink:#1c2733;
+    --muted:#5c6b7a;
+    --line:#e2e6ea;
+    --line-soft:#eef1f4;
+    --bg:#ffffff;
+    --bg-tint:#f7f9fb;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Source Serif 4',Georgia,serif;font-weight:600;color:var(--blue)}
+  a{color:var(--blue-soft);text-decoration:none}
+  a:hover{color:var(--blue)}
+  ::selection{background:var(--maize);color:var(--blue)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 40px}
+
+  /* ---- Top bar ---- */
+  .topbar{position:sticky;top:0;z-index:50;border-top:4px solid var(--maize);background:var(--blue);color:#fff}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding:15px 40px}
+  .topbar .brand{font-weight:600;letter-spacing:.01em;font-size:16px}
+  .topbar nav{display:flex;gap:28px}
+  .topbar nav a{color:rgba(255,255,255,.82);font-size:14px;font-weight:500;transition:.15s}
+  .topbar nav a:hover{color:var(--maize)}
+
+  /* ---- Hero ---- */
+  .hero{padding:88px 0 72px;border-bottom:1px solid var(--line)}
+  .hero .inner{display:flex;gap:56px;align-items:center}
+  .hero .headshot{flex:0 0 auto}
+  .hero .headshot img{width:196px;height:196px;border-radius:50%;object-fit:cover;border:4px solid var(--bg-tint);box-shadow:0 1px 3px rgba(0,39,76,.15)}
+  .hero .text{flex:1}
+  .hero .eyebrow{color:var(--blue-soft);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+  .hero h1{font-size:40px;line-height:1.15;margin-bottom:18px}
+  .hero p{color:var(--muted);font-size:17px;max-width:640px;margin-bottom:22px}
+  .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;padding:11px 20px;border-radius:4px;font-size:14px;font-weight:600;transition:.15s}
+  .btn:hover{background:var(--blue-soft);color:#fff}
+  .btn.alt{background:transparent;color:var(--blue);border:1.5px solid var(--line)}
+  .btn.alt:hover{border-color:var(--blue);color:var(--blue)}
+
+  /* ---- Section shell ---- */
+  section.block{padding:64px 0;border-bottom:1px solid var(--line)}
+  section.block:last-of-type{border-bottom:none}
+  .section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:36px}
+  .section-head .num{color:var(--maize);background:var(--blue);font-family:'Source Serif 4',serif;font-size:13px;font-weight:600;padding:3px 9px;border-radius:3px}
+  .section-head h2{font-size:26px}
+
+  /* ---- About ---- */
+  .about-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:56px}
+  .about-grid .lede{font-size:18px;color:var(--ink)}
+  .facts{background:var(--bg-tint);border-radius:8px;padding:24px 26px}
+  .facts .fk{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--blue-soft);font-weight:600;margin-top:16px}
+  .facts .fk:first-child{margin-top:0}
+  .facts .fv{font-size:15px;margin-top:4px}
+  .facts .fv a{font-weight:500}
+
+  /* ---- Research ---- */
+  .interest-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
+  .interest-tags span{background:var(--bg-tint);color:var(--blue);border:1px solid var(--line);padding:6px 13px;border-radius:20px;font-size:13.5px;font-weight:500}
+  .book-card{display:flex;gap:22px;background:var(--blue);color:#fff;border-radius:10px;padding:26px 28px;margin-bottom:44px}
+  .book-card .tag{display:inline-block;background:var(--maize);color:var(--blue);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:3px;margin-bottom:10px}
+  .book-card h3{color:#fff;font-size:19px;line-height:1.4;margin-bottom:8px}
+  .book-card p{color:rgba(255,255,255,.78);font-size:14.5px}
+  .pub-sub{font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:var(--blue-soft);font-weight:600;margin:34px 0 14px}
+  .pub-sub:first-of-type{margin-top:0}
+  .pub-list{list-style:none}
+  .pub-item{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line-soft);align-items:flex-start}
+  .pub-item:last-child{border-bottom:none}
+  .pub-item .yr{flex:0 0 52px;color:var(--muted);font-size:13.5px;font-weight:600;padding-top:1px}
+  .pub-item .body{flex:1;font-size:15px}
+  .pub-item .badge{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 7px;border-radius:3px;margin-left:8px;position:relative;top:-1px}
+  .badge.progress{background:#fff2cc;color:#8a6d00}
+  .badge.review{background:#e6eef5;color:var(--blue-soft)}
+  .doi-btn{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--bg-tint);margin-left:6px;vertical-align:middle;transition:.15s}
+  .doi-btn:hover{background:var(--maize)}
+  .doi-btn svg{width:11px;height:11px}
+
+  /* ---- Teaching ---- */
+  .teach-cols{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .teach-cols h3{font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--blue-soft);margin-bottom:16px}
+  .course{padding:14px 0;border-bottom:1px solid var(--line-soft)}
+  .course:last-child{border-bottom:none}
+  .course .code{font-weight:600;color:var(--blue)}
+  .course .title{font-size:14.5px;color:var(--muted);margin-top:2px}
+  .course .meta{font-size:13px;color:var(--muted);margin-top:4px}
+
+  /* ---- Grants & Projects ---- */
+  .gp-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .gp-item{padding:14px 0;border-bottom:1px solid var(--line-soft)}
+  .gp-item:last-child{border-bottom:none}
+  .gp-item .title{font-weight:600;font-size:15px}
+  .gp-item .meta{font-size:13.5px;color:var(--muted);margin-top:3px}
+
+  /* ---- Contact ---- */
+  .contact{background:var(--blue);color:#fff}
+  .contact .wrap{padding:64px 40px}
+  .contact-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+  .contact h2{color:#fff;font-size:28px;margin-bottom:14px}
+  .contact p{color:rgba(255,255,255,.75);max-width:440px;margin-bottom:22px}
+  .contact .btn{background:var(--maize);color:var(--blue)}
+  .contact .btn:hover{background:#ffd94d;color:var(--blue)}
+  .cinfo .k{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--maize);font-weight:700;margin-top:16px}
+  .cinfo .k:first-child{margin-top:0}
+  .cinfo a,.cinfo span{color:rgba(255,255,255,.9);font-size:14.5px;display:block;margin-top:3px}
+  .foot{display:flex;justify-content:space-between;padding-top:36px;margin-top:36px;border-top:1px solid rgba(255,255,255,.15);font-size:13px;color:rgba(255,255,255,.55)}
+
+  @media(max-width:760px){
+    .wrap{padding:0 22px}
+    .topbar .wrap{padding:14px 22px;flex-direction:column;gap:10px}
+    .topbar nav{gap:16px;flex-wrap:wrap;justify-content:center}
+    .hero{padding:52px 0 44px}
+    .hero .inner{flex-direction:column;text-align:center}
+    .hero h1{font-size:30px}
+    .about-grid,.teach-cols,.gp-grid{grid-template-columns:1fr;gap:28px}
+    .contact .wrap{padding:44px 22px}
+    .contact-grid{flex-direction:column}
+    .foot{flex-direction:column;gap:6px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand">Subin Min</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#projects">Grants &amp; Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<section class="hero" id="about">
+  <div class="wrap inner">
+    <div class="headshot">
+      <img src="headshot.jpg" alt="Subin Min headshot">
+    </div>
+    <div class="text">
+      <div class="eyebrow">PhD Candidate · Social Work &amp; Sociology · University of Michigan</div>
+      <h1>Subin Min</h1>
+      <p class="lede">Hello, my name is Subin Min and I'm a joint PhD candidate in Social Work and Sociology. My research examines asset-based welfare policy, with a particular focus on Children's Development Accounts (CDAs) and their design, implementation, and international diffusion across welfare regimes. Drawing on both U.S. and Korean cases, my work takes a comparative approach to understanding how institutional and policy contexts shape asset-building outcomes for low-income and near-poor families. I am currently involved in several CDA-related research projects, including CollegeBound Boost RCT in Saint Paul, Minnesota, and the Early Awards Scholarship Program in Wabash County, Indiana. My research agenda also extends to youth economic mobility more broadly, including a study of the Growing Detroit's Young Talent summer youth employment program in Detroit, Michigan. My work aims to inform policy interventions that strengthen financial stability and expand economic mobility for marginalized populations.</p>
+      <div class="cta-row">
+        <a class="btn" href="mailto:subinmin@umich.edu">Email me →</a>
+        <a class="btn alt" href="CV_Subin_Min_Current.pdf">Download CV</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:56px;padding-bottom:0;border-bottom:none">
+  <div class="wrap about-grid">
+    <div></div>
+    <div class="facts">
+      <div class="fk">Education</div>
+      <div class="fv">PhD Candidate, Social Work &amp; Sociology<br>University of Michigan · 2022–present</div>
+      <div class="fv" style="margin-top:8px">M.S.W., Yonsei University · 2021</div>
+      <div class="fv" style="margin-top:8px">B.A. Social Welfare, Yonsei University · 2019</div>
+      <div class="fk">Affiliations</div>
+      <div class="fv">Center on Assets, Education &amp; Inclusion (AEDI)</div>
+      <div class="fv" style="margin-top:6px">Stone Center for Inequality Dynamics</div>
+      <div class="fv" style="margin-top:6px">Nam Center for Korean Studies</div>
+      <div class="fv" style="margin-top:6px">Center for Equitable Family and Community Well-Being</div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="research">
+  <div class="wrap">
+    <div class="section-head"><span class="num">01</span><h2>Research</h2></div>
+
+    <div class="interest-tags">
+      <span>Asset-based Welfare Policy</span>
+      <span>Children's Development Accounts</span>
+      <span>Economic Mobility</span>
+      <span>Wealth Inequality</span>
+      <span>Tax Progressivity</span>
+      <span>Comparative Social Policy</span>
+    </div>
+
+    <div class="book-card">
+      <div>
+        <span class="tag">Book · 2026</span>
+        <h3>Beyond the Racial Wealth Gap: Structural Class Exclusion and the Case for a Social Mobility Revolution in America</h3>
+        <p>Elliott, W., Agyare, B. O., Zheng, H., Min, S., &amp; Elliott, M. (2026). Scientific Research Publishing, Inc.</p>
+      </div>
+    </div>
+
+    <div class="pub-sub">Peer-Reviewed Papers</div>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <div class="yr">In Prog.</div>
+        <div class="body">Min, S., O'Brien, M., Dombro, A., Jones-Layman, A., &amp; Elliott, W. How Incentive Structure Fosters Engagement in Children's Savings Account Program: A Thematic Analysis of Qualitative Interviews on CollegeBound Saint Paul.<span class="badge progress">In Progress</span></div>
+      </li>
+      <li class="pub-item">
+        <div class="yr">Review</div>
+        <div class="body">Yoo, N., Lee, J., Min, S., &amp; Kim, Y. Material Hardship and Livelihood Coping Strategies among Refugees in South Korea during COVID-19 Pandemic: The Role of Employment and Visa Status.<span class="badge review">Under Review</span></div>
+      </li>
+      <li class="pub-item">
+        <div class="yr">2025</div>
+        <div class="body">Elliott, W., Osafo Agyare, B., &amp; Min, S. (2025). Timing Wealth Building to Maximize Return on Degree. <em>Sociology Mind</em>, 15(4), 216–264.
+          <a class="doi-btn" href="https://doi.org/10.4236/sm.2025.154013" title="View DOI" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#12507e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </li>
+      <li class="pub-item">
+        <div class="yr">2025</div>
+        <div class="body">Elliott, W., Osafo Agyare, B., Zheng, H., &amp; Min, S. (2025). Redesigning Social Welfare: Presenting a New Asset Poverty Measure. <em>Sociology Mind</em>, 15(4), 265–325.
+          <a class="doi-btn" href="https://doi.org/10.4236/sm.2025.154014" title="View DOI" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#12507e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </li>
+      <li class="pub-item">
+        <div class="yr">2025</div>
+        <div class="body">Elliott, W., Zheng, H., Osafo Agyare, B., &amp; Min, S. (2025). Testing a Social Welfare Theory of Financial Capability: Personal and Governmental Capabilities. <em>Sociology Mind</em>, 15(4), 326–367.
+          <a class="doi-btn" href="https://doi.org/10.4236/sm.2025.154015" title="View DOI" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#12507e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </li>
+      <li class="pub-item">
+        <div class="yr">2024</div>
+        <div class="body">Elliott, W., Jones-Layman, A., Park, S., Min, S., &amp; O'Brien, M. (2024). What Are Characteristics of Tangible Hope? A Guaranteed Income and Asset Experiment in Saint Paul, MN/A Children's Savings Account Program. <em>Sociology Mind</em>, 14, 95–120.
+          <a class="doi-btn" href="https://doi.org/10.4236/sm.2024.141006" title="View DOI" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#12507e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </li>
+      <li class="pub-item">
+        <div class="yr">2020</div>
+        <div class="body">Choi, S., Min, S.*, &amp; Lee, Y. (2020). A Study on the Inequality Trends of Current and Future Elderly: Focusing on Income and Assets by Cohort. <em>Korea Association of Social Policy</em>, 27(3), 45–76.
+          <a class="doi-btn" href="https://doi.org/10.17000/kspr.27.3.202009.45" title="View DOI" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#12507e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="pub-sub">Other Publications</div>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <div class="yr">2026</div>
+        <div class="body">Min, S. (2026). Guaranteed income experiments in the United States and policy implications. <em>Global Social Security Review</em>, 36, 101–108.
+          <a class="doi-btn" href="https://doi.org/10.23063/2026.03.8" title="View DOI" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#12507e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="pub-sub">Policy Briefs &amp; Reports</div>
+    <ul class="pub-list">
+      <li class="pub-item"><div class="yr">2024</div><div class="body">Elliott, W., Sorensen, N., O'Brien, M., &amp; Min, S. (2024). Impact of Income and Assets on Parents' Educational Expectations: CollegeBound Boost Saint Paul, Implications for Ending Poverty. [Policy Brief]. University of Michigan, School of Social Work, AEDI.</div></li>
+      <li class="pub-item"><div class="yr">2022</div><div class="body">Kim, M. &amp; Min, S. (2022). A Study on Measures to Improve Housing Support Policies for the Homeless in Seoul: Focusing on the Case Management for Public Rental Housing. Seoul Welfare Foundation.</div></li>
+      <li class="pub-item"><div class="yr">2022</div><div class="body">Kim, M. &amp; Min, S. (2022). A Study on the Development of Evaluation Indicators for the At-home Senior Support Service Center in Seoul. Seoul Welfare Foundation.</div></li>
+      <li class="pub-item"><div class="yr">2021</div><div class="body">Yoo, B., Lee, C., Seo, S., et al., &amp; Min, S. (2021). A Study on Discovering and Resolving Blind Spots in Incheon's Welfare: Focusing on the COVID-19 Situation. Incheon Welfare Foundation.</div></li>
+      <li class="pub-item"><div class="yr">2020</div><div class="body">Kim, J., Seo, K., Kim, J., Kang, M., Min, S., et al., &amp; Hwang, S. (2020). 2020 Social Welfare Indicators in Mapo-gu. Sechang Publish.</div></li>
+    </ul>
+
+    <div class="pub-sub">Selected Conference Presentations</div>
+    <ul class="pub-list">
+      <li class="pub-item"><div class="yr">2027</div><div class="body">Min, S. &amp; Kloc, M. (2027). The Organizational Life Course of a Summer Youth Employment Program: A Case Study of Growing Detroit's Young Talent. SSWR 2027, San Francisco, CA.</div></li>
+      <li class="pub-item"><div class="yr">2027</div><div class="body">Elliott, W., Zheng, H., &amp; Min, S. (2027). The Wealth Threshold Effect on College Savings Behavior: CollegeBound Boost RCT Study. SSWR 2027, San Francisco, CA.</div></li>
+      <li class="pub-item"><div class="yr">2025</div><div class="body">Min, S., O'Brien, M., Dombro, A., Jones-Layman, A., &amp; Elliott, W. (2025). Beyond the Balance: A Qualitative Study of How Incentive Structure Fosters Engagement in CollegeBound Saint Paul.</div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="teaching">
+  <div class="wrap">
+    <div class="section-head"><span class="num">02</span><h2>Teaching</h2></div>
+    <div class="teach-cols">
+      <div>
+        <h3>Instructor of Record</h3>
+        <div class="course">
+          <div class="code">SW623 — Child and Family Well-being: Macro Practice</div>
+          <div class="meta">School of Social Work, University of Michigan · Winter 2026</div>
+        </div>
+        <div class="course">
+          <div class="code">SW508 — Essentials of Social Welfare Policy</div>
+          <div class="meta">School of Social Work, University of Michigan · Fall 2025</div>
+        </div>
+      </div>
+      <div>
+        <h3>Guest Lectures</h3>
+        <div class="course">
+          <div class="code">SW678 — Program Evaluation and Applied Research</div>
+          <div class="title">Mixed-Method Study of RCT and In-Depth Interviews (CollegeBound Boost Study)</div>
+          <div class="meta">February 24, 2026</div>
+        </div>
+        <div class="course">
+          <div class="code">SW505 — Engaging Social Justice, Diversity, and Oppression in Social Work</div>
+          <div class="title">Current Policy Landscape towards Equitable Future for All</div>
+          <div class="meta">November 19, 2024</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="projects">
+  <div class="wrap">
+    <div class="section-head"><span class="num">03</span><h2>Grants &amp; Projects</h2></div>
+    <div class="gp-grid">
+      <div>
+        <h3 style="font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--blue-soft);margin-bottom:16px">Current Projects</h3>
+        <div class="gp-item">
+          <div class="title">Growing Detroit's Young Talent (GDYT) Pilot Study</div>
+          <div class="meta">HUM00286172 · PI: Dr. Patrick Meehan · 2026–present</div>
+        </div>
+        <div class="gp-item">
+          <div class="title">Early Awards Scholarship Program (EASP) Qualitative Study</div>
+          <div class="meta">HUM00249791 · Wabash County, IN · PI: Dr. William Elliott · 2024–present</div>
+        </div>
+        <div class="gp-item">
+          <div class="title">CollegeBound Boost RCT (CBSP)</div>
+          <div class="meta">HUM00221771 · Saint Paul, MN · PI: Dr. William Elliott · 2022–present</div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--blue-soft);margin-bottom:16px">Scholarships &amp; Awards</h3>
+        <div class="gp-item"><div class="title">Karl C.K. Ma Endowed Graduate Scholarship ($7,250)</div><div class="meta">Rackham Graduate School · 2026</div></div>
+        <div class="gp-item"><div class="title">Vivian A. and James L. Curtis Endowed Scholarship ($11,000)</div><div class="meta">School of Social Work · 2025</div></div>
+        <div class="gp-item"><div class="title">Precandidacy Research Grant ($1,500)</div><div class="meta">Rackham Graduate School · 2025</div></div>
+        <div class="gp-item"><div class="title">W.K. Kellogg Fellowship ($15,000)</div><div class="meta">School of Social Work · 2024</div></div>
+        <div class="gp-item"><div class="title">Grand Prize, Young Researchers Best Paper Award</div><div class="meta">Korea Association of Social Policy · 2021</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <h2>Get in touch</h2>
+        <p>Interested in collaboration, or my work on economic mobility and asset-based policy? I'd be glad to connect.</p>
+        <a class="btn" href="mailto:subinmin@umich.edu">Email me →</a>
+      </div>
+      <div class="cinfo">
+        <div class="k">Email</div>
+        <a href="mailto:subinmin@umich.edu">subinmin@umich.edu</a>
+        <div class="k">Phone</div>
+        <a href="tel:+17342102741">734-210-2741</a>
+        <div class="k">Office</div>
+        <span>School of Social Work<br>1080 S University Ave<br>Ann Arbor, MI 48109</span>
+        <div class="k">Curriculum Vitae</div>
+        <a href="CV_Subin_Min_Current.pdf">Download full CV (PDF) →</a>
+      </div>
+    </div>
+    <div class="foot">
+      <span>© 2026 Subin Min</span>
+      <span>PhD Candidate · Social Work &amp; Sociology · University of Michigan</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
