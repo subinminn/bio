@@ -19,22 +19,48 @@ permissions:
   contents: write
 
 env:
-  MAIN_TEX: main.tex          # main file name in your Overleaf project
-  PDF_DEST: cv/cv.pdf         # where the PDF goes in this repo
-  REV_FILE: cv/.overleaf-rev  # stores the last compiled Overleaf commit
+  MAIN_TEX: ""                         # leave empty to auto-detect the main .tex file
+  PDF_DEST: CV_Subin_Min_Current.pdf   # file name the website links to
+  REV_FILE: cv/.overleaf-rev           # stores the last compiled Overleaf commit
 
 jobs:
   update-cv:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Clone Overleaf project
         run: |
           git clone --depth 1 \
             "https://git:${{ secrets.OVERLEAF_TOKEN }}@git.overleaf.com/${{ secrets.OVERLEAF_PROJECT_ID }}" \
             overleaf-src
+
+      - name: Detect main file and compiler
+        id: detect
+        working-directory: overleaf-src
+        run: |
+          MAIN="$MAIN_TEX"
+          if [ -z "$MAIN" ]; then
+            # The main file is the top-level .tex file that declares \documentclass
+            MAIN=$(grep -l '^[[:space:]]*\\documentclass' *.tex 2>/dev/null | head -n 1)
+          fi
+          if [ -z "$MAIN" ] || [ ! -f "$MAIN" ]; then
+            echo "Could not find the main .tex file. Files in the Overleaf project:"
+            ls -la
+            exit 1
+          fi
+          echo "Main file: $MAIN"
+          echo "main=$MAIN" >> "$GITHUB_OUTPUT"
+
+          # Use XeLaTeX if any .tex/.cls/.sty file loads fontspec
+          if grep -rqE '\\(usepackage|RequirePackage)(\[[^]]*\])?\{fontspec\}' --include='*.tex' --include='*.cls' --include='*.sty' .; then
+            echo "Compiler: XeLaTeX"
+            echo "xelatex=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Compiler: pdfLaTeX"
+            echo "xelatex=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Skip if Overleaf has not changed
         id: check
@@ -54,15 +80,15 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           working_directory: overleaf-src
-          root_file: ${{ env.MAIN_TEX }}
-          # If your Overleaf compiler is XeLaTeX, uncomment the next line:
-          # latexmk_use_xelatex: true
+          root_file: ${{ steps.detect.outputs.main }}
+          latexmk_use_xelatex: ${{ steps.detect.outputs.xelatex == 'true' }}
 
       - name: Commit PDF
         if: steps.check.outputs.changed == 'true'
         run: |
-          mkdir -p "$(dirname "$PDF_DEST")"
-          cp "overleaf-src/${MAIN_TEX%.tex}.pdf" "$PDF_DEST"
+          MAIN="${{ steps.detect.outputs.main }}"
+          mkdir -p "$(dirname "$PDF_DEST")" "$(dirname "$REV_FILE")"
+          cp "overleaf-src/${MAIN%.tex}.pdf" "$PDF_DEST"
           echo "${{ steps.check.outputs.new_rev }}" > "$REV_FILE"
           rm -rf overleaf-src
           git config user.name "github-actions[bot]"
