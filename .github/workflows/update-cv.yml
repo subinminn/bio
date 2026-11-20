@@ -51,7 +51,11 @@ jobs:
             exit 1
           fi
           echo "Main file: $MAIN"
-          echo "main=$MAIN" >> "$GITHUB_OUTPUT"
+          # Copy to a space-free name: the LaTeX action cannot handle spaces in file names
+          if [ "$MAIN" != "cvmain.tex" ]; then
+            cp "$MAIN" cvmain.tex
+          fi
+          echo "main=cvmain.tex" >> "$GITHUB_OUTPUT"
 
           # Use XeLaTeX if any .tex/.cls/.sty file loads fontspec
           if grep -rqE '\\(usepackage|RequirePackage)(\[[^]]*\])?\{fontspec\}' --include='*.tex' --include='*.cls' --include='*.sty' .; then
