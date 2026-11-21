@@ -26,7 +26,7 @@
     color:var(--ink);
     font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,sans-serif;    
     font-size:17px;
-    line-height:1.65;
+    line-height:1.5;
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3{font-family:'Literata',Georgia,serif;font-weight:600;color:var(--blue)}
@@ -44,14 +44,14 @@
   .topbar nav a:hover{color:var(--maize)}
 
   /* ---- Hero ---- */
-  .hero{padding:88px 0 72px;border-bottom:1px solid var(--line)}
+  .hero{padding:64px 0 52px;border-bottom:1px solid var(--line)}
   .hero .inner{display:flex;gap:56px;align-items:center}
   .hero .headshot{flex:0 0 auto}
   .hero .headshot img{width:196px;height:196px;border-radius:50%;object-fit:cover;border:4px solid var(--bg-tint);box-shadow:0 1px 3px rgba(0,39,76,.15)}
   .hero .text{flex:1}
   .hero .eyebrow{color:var(--blue-soft);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
-  .hero h1{font-size:40px;line-height:1.15;margin-bottom:18px}
-  .hero p{color:var(--muted);font-size:17px;max-width:640px;margin-bottom:22px}
+  .hero h1{font-size:40px;line-height:1.15;margin-bottom:10px}
+  .hero p{color:var(--muted);font-size:17px;max-width:640px;margin-bottom:18px}
   .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap}
   .btn{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;padding:11px 20px;border-radius:4px;font-size:14px;font-weight:600;transition:.15s}
   .btn:hover{background:var(--blue-soft);color:#fff}
@@ -59,35 +59,48 @@
   .btn.alt:hover{border-color:var(--blue);color:var(--blue)}
 
   /* ---- Section shell ---- */
-  section.block{padding:64px 0;border-bottom:1px solid var(--line)}
+  section.block{padding:48px 0;border-bottom:1px solid var(--line)}
   section.block:last-of-type{border-bottom:none}
-  .section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:36px}
+  .section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:24px}
   .section-head .num{color:var(--maize);background:var(--blue);font-family:'Source Serif 4',serif;font-size:13px;font-weight:600;padding:3px 9px;border-radius:3px}
   .section-head h2{font-size:26px}
 
   /* ---- About ---- */
   .about-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:56px}
-  .about-grid .lede{font-size:18px;color:var(--ink)}
+  .about-grid .lede{font-size:17px;line-height:1.6;color:var(--ink)}
   .facts{background:var(--bg-tint);border-radius:8px;padding:24px 26px}
   .facts .fk{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--blue-soft);font-weight:600;margin-top:16px}
   .facts .fk:first-child{margin-top:0}
   .facts .fv{font-size:15px;margin-top:4px}
   .facts .fv a{font-weight:500}
 
+  .jm-badge{display:inline-block;background:var(--maize);color:var(--blue);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:3px;margin-bottom:12px}
+  .themes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+  .theme{background:var(--bg-tint);border-left:3px solid var(--maize);border-radius:4px;padding:12px 14px}
+  .theme h4{font-family:'Literata',Georgia,serif;font-size:15px;font-weight:600;color:var(--blue);line-height:1.3;margin-bottom:4px}
+  .theme p{font-size:13.5px;color:var(--muted);line-height:1.45;margin:0;max-width:none}
+
+  /* ---- News ---- */
+  .news .pub-item .yr{flex:0 0 76px;white-space:nowrap}
+  .news details summary{cursor:pointer;color:var(--blue-soft);font-size:14px;font-weight:600;margin-top:10px;list-style:none}
+  .news details summary::-webkit-details-marker{display:none}
+  .news details summary::before{content:"+ "}
+  .news details[open] summary::before{content:"− "}
+
   /* ---- Research ---- */
-  .interest-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
+  .interest-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
   .interest-tags span{background:var(--bg-tint);color:var(--blue);border:1px solid var(--line);padding:6px 13px;border-radius:20px;font-size:13.5px;font-weight:500}
-  .book-card{display:flex;gap:22px;background:var(--blue);color:#fff;border-radius:10px;padding:26px 28px;margin-bottom:44px}
+  .book-card{display:flex;gap:22px;background:var(--blue);color:#fff;border-radius:10px;padding:22px 26px;margin-bottom:32px}
   .book-card .tag{display:inline-block;background:var(--maize);color:var(--blue);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:3px;margin-bottom:10px}
   .book-card h3{color:#fff;font-size:19px;line-height:1.4;margin-bottom:8px}
   .book-card p{color:rgba(255,255,255,.78);font-size:14.5px}
-  .pub-sub{font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:var(--blue-soft);font-weight:600;margin:34px 0 14px}
+  .pub-sub{font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:var(--blue-soft);font-weight:600;margin:26px 0 8px}
   .pub-sub:first-of-type{margin-top:0}
   .pub-list{list-style:none}
-  .pub-item{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line-soft);align-items:flex-start}
+  .pub-item{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line-soft);align-items:flex-start}
   .pub-item:last-child{border-bottom:none}
   .pub-item .yr{flex:0 0 52px;color:var(--muted);font-size:13.5px;font-weight:600;padding-top:1px}
-  .pub-item .body{flex:1;font-size:15px}
+  .pub-item .body{flex:1;font-size:15px;line-height:1.45}
   .pub-item .badge{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 7px;border-radius:3px;margin-left:8px;position:relative;top:-1px}
   .badge.progress{background:#fff2cc;color:#8a6d00}
   .badge.review{background:#e6eef5;color:var(--blue-soft)}
@@ -97,19 +110,19 @@
 
   /* ---- Teaching ---- */
   .teach-cols{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-  .teach-cols h3{font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--blue-soft);margin-bottom:16px}
-  .course{padding:14px 0;border-bottom:1px solid var(--line-soft)}
+  .teach-cols h3{font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--blue-soft);margin-bottom:8px}
+  .course{padding:9px 0;border-bottom:1px solid var(--line-soft)}
   .course:last-child{border-bottom:none}
   .course .code{font-weight:600;color:var(--blue)}
   .course .title{font-size:14.5px;color:var(--muted);margin-top:2px}
-  .course .meta{font-size:13px;color:var(--muted);margin-top:4px}
+  .course .meta{font-size:13px;color:var(--muted);margin-top:1px;line-height:1.4}
 
   /* ---- Grants & Projects ---- */
   .gp-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-  .gp-item{padding:14px 0;border-bottom:1px solid var(--line-soft)}
+  .gp-item{padding:9px 0;border-bottom:1px solid var(--line-soft)}
   .gp-item:last-child{border-bottom:none}
   .gp-item .title{font-weight:600;font-size:15px}
-  .gp-item .meta{font-size:13.5px;color:var(--muted);margin-top:3px}
+  .gp-item .meta{font-size:13.5px;color:var(--muted);margin-top:1px;line-height:1.4}
 
   /* ---- Contact ---- */
   .contact{background:var(--blue);color:#fff}
@@ -131,7 +144,9 @@
     .hero{padding:52px 0 44px}
     .hero .inner{flex-direction:column;text-align:center;align-items:center !important}
     .hero h1{font-size:30px}
-    .about-grid,.teach-cols,.gp-grid{grid-template-columns:1fr;gap:28px}
+    .about-grid,.teach-cols,.gp-grid,.themes{grid-template-columns:1fr;gap:20px}
+    .themes{gap:10px}
+    .hero .cta-row{justify-content:center}
     .contact .wrap{padding:44px 22px}
     .contact-grid{flex-direction:column}
     .foot{flex-direction:column;gap:6px}
@@ -145,6 +160,7 @@
     <div class="brand">Subin Min</div>
     <nav>
       <a href="#about">About</a>
+      <a href="#news">News</a>
       <a href="#research">Research</a>
       <a href="#teaching">Teaching</a>
       <a href="#projects">Grants &amp; Projects</a>
@@ -156,21 +172,39 @@
 
 <section class="hero" id="about">
   <div class="wrap">
-    <div class="inner" style="align-items:flex-start;margin-bottom:40px">
+    <div class="inner" style="align-items:center;margin-bottom:32px">
       <div class="headshot">
         <img src="headshot.jpg" alt="Subin Min headshot">
       </div>
       <div class="text">
         <div class="eyebrow">PhD Candidate · Social Work &amp; Sociology · University of Michigan</div>
         <h1>Subin Min</h1>
+        <span class="jm-badge">On the 2026–27 Academic Job Market</span>
+        <p>I study asset-based welfare policy, especially Child Development Accounts, and how wealth shapes economic mobility for low-income families, drawing on U.S. and Korean cases.</p>
+        <div class="cta-row">
+          <a class="btn" href="CV_Subin_Min_Current.pdf" target="_blank" rel="noopener">Download CV</a>
+          <a class="btn alt" href="mailto:subinmin@umich.edu">Email</a>
+          <a class="btn alt" href="https://scholar.google.com/citations?user=_nR33u8AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <a class="btn alt" href="https://www.linkedin.com/in/subinmin" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
       </div>
     </div>
     <div class="about-grid">
       <div>
-        <p class="lede">Hello, my name is Subin Min and I'm a joint PhD candidate in Social Work and Sociology. My research examines asset-based welfare policy, with a particular focus on Children's Development Accounts (CDAs) and their design, implementation, and international diffusion across welfare regimes. Drawing on both U.S. and Korean cases, my work takes a comparative approach to understanding how institutional and policy contexts shape asset-building outcomes for low-income and near-poor families. I am currently involved in several CDA-related research projects, including CollegeBound Boost RCT in Saint Paul, Minnesota, and the Early Awards Scholarship Program in Wabash County, Indiana. My research agenda also extends to youth economic mobility more broadly, including a study of the Growing Detroit's Young Talent summer youth employment program in Detroit, Michigan. My work aims to inform policy interventions that strengthen financial stability and expand economic mobility for marginalized populations.</p>
-        <div class="cta-row" style="margin-top:22px">
-          <a class="btn" href="mailto:subinmin@umich.edu">Email me →</a>
-          <a class="btn alt" href="CV_Subin_Min_Current.pdf">Download CV</a>
+        <p class="lede">I am a joint PhD candidate in Social Work and Sociology at the University of Michigan. My research examines how the design, implementation, and diffusion of asset-based policies shape financial stability and mobility for low-income and near-poor families, using randomized trials, qualitative interviews, and comparative policy analysis.</p>
+        <div class="themes">
+          <div class="theme">
+            <h4>Asset-based Policy &amp; CDAs</h4>
+            <p>CollegeBound Boost RCT (Saint Paul, MN); Early Awards Scholarship (Wabash County, IN)</p>
+          </div>
+          <div class="theme">
+            <h4>Youth Economic Mobility</h4>
+            <p>Growing Detroit's Young Talent summer youth employment program (Detroit, MI)</p>
+          </div>
+          <div class="theme">
+            <h4>Comparative Social Policy</h4>
+            <p>How U.S. and Korean institutional contexts shape asset building and inequality</p>
+          </div>
         </div>
       </div>
       <div class="facts">
@@ -191,9 +225,33 @@
   </div>
 </section>
 
+<section class="block news" id="news">
+  <div class="wrap">
+    <div class="section-head"><span class="num">01</span><h2>News</h2></div>
+    <!-- To add news: copy one <li> line below to the TOP of the first list and edit the date and text.
+         Keep about 5 items in the first list; move older ones into the "More news" list. -->
+    <ul class="pub-list">
+      <li class="pub-item"><div class="yr">Mar 2027</div><div class="body">Invited to present “Beyond the Asset Poverty Line” at the Russell Sage Foundation Journal Authors' Conference on Wealth and Family Economics, New York.</div></li>
+      <li class="pub-item"><div class="yr">Jan 2027</div><div class="body">Presenting CollegeBound Boost RCT findings on the wealth threshold effect at SSWR 2027, San Francisco.</div></li>
+      <li class="pub-item"><div class="yr">2026</div><div class="body">Awarded the Karl C.K. Ma Endowed Graduate Scholarship, Rackham Graduate School.</div></li>
+      <li class="pub-item"><div class="yr">Mar 2026</div><div class="body">New article on guaranteed income experiments in the U.S. published in <em>Global Social Security Review</em>.</div></li>
+      <li class="pub-item"><div class="yr">Jan 2026</div><div class="body">Instructor of record for SW623, Child and Family Well-being: Macro Practice.</div></li>
+    </ul>
+    <details>
+      <summary>More news</summary>
+      <ul class="pub-list">
+        <li class="pub-item"><div class="yr">Nov 2025</div><div class="body">Presented “Beyond the Balance,” a qualitative study of CollegeBound Saint Paul, at APPAM 2025, Seattle.</div></li>
+        <li class="pub-item"><div class="yr">Sep 2025</div><div class="body">Instructor of record for SW508, Essentials of Social Welfare Policy.</div></li>
+        <li class="pub-item"><div class="yr">2025</div><div class="body">Three co-authored articles on wealth building and asset poverty published in <em>Sociology Mind</em>.</div></li>
+        <li class="pub-item"><div class="yr">2025</div><div class="body">Awarded the Vivian A. and James L. Curtis Endowed Scholarship, School of Social Work.</div></li>
+      </ul>
+    </details>
+  </div>
+</section>
+
 <section class="block" id="research">
   <div class="wrap">
-    <div class="section-head"><span class="num">01</span><h2>Research</h2></div>
+    <div class="section-head"><span class="num">02</span><h2>Research</h2></div>
 
     <div class="interest-tags">
       <span>Asset-based Welfare Policy</span>
@@ -301,7 +359,7 @@
 
 <section class="block" id="teaching">
   <div class="wrap">
-    <div class="section-head"><span class="num">02</span><h2>Teaching</h2></div>
+    <div class="section-head"><span class="num">03</span><h2>Teaching</h2></div>
     <div class="teach-cols">
       <div>
         <h3>Instructor of Record</h3>
@@ -333,10 +391,10 @@
 
 <section class="block" id="projects">
   <div class="wrap">
-    <div class="section-head"><span class="num">03</span><h2>Grants &amp; Projects</h2></div>
+    <div class="section-head"><span class="num">04</span><h2>Grants &amp; Projects</h2></div>
     <div class="gp-grid">
       <div>
-        <h3 style="font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--blue-soft);margin-bottom:16px">Current Projects</h3>
+        <h3 style="font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--blue-soft);margin-bottom:8px">Current Projects</h3>
         <div class="gp-item">
           <div class="title">Growing Detroit's Young Talent (GDYT) Pilot Study</div>
           <div class="meta">HUM00286172 · PI: Dr. Patrick Meehan · 2026–present</div>
@@ -351,7 +409,7 @@
         </div>
       </div>
       <div>
-        <h3 style="font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--blue-soft);margin-bottom:16px">Scholarships &amp; Awards</h3>
+        <h3 style="font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--blue-soft);margin-bottom:8px">Scholarships &amp; Awards</h3>
         <div class="gp-item"><div class="title">Karl C.K. Ma Endowed Graduate Scholarship ($7,250)</div><div class="meta">Rackham Graduate School · 2026</div></div>
         <div class="gp-item"><div class="title">Vivian A. and James L. Curtis Endowed Scholarship ($11,000)</div><div class="meta">School of Social Work · 2025</div></div>
         <div class="gp-item"><div class="title">Precandidacy Research Grant ($1,500)</div><div class="meta">Rackham Graduate School · 2025</div></div>
@@ -368,21 +426,21 @@
 
 <section class="block" id="service">
   <div class="wrap">
-    <div class="section-head"><span class="num">04</span><h2>Experience &amp; Service</h2></div>
+    <div class="section-head"><span class="num">05</span><h2>Experience &amp; Service</h2></div>
     <div class="gp-grid">
       <div>
-        <h3 style="font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--blue-soft);margin-bottom:16px">Professional Experience</h3>
+        <h3 style="font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--blue-soft);margin-bottom:8px">Professional Experience</h3>
         <div class="gp-item"><div class="title">Graduate Student Research Assistant</div><div class="meta">Center for Equitable Family and Community Well-Being · Jan 2026–present</div></div>
         <div class="gp-item"><div class="title">Graduate Student Research Assistant</div><div class="meta">Center on Assets, Education, and Inclusion (AEDI) · Aug 2022–present</div></div>
         <div class="gp-item"><div class="title">NEKST Graduate Student Conference Organizing Committee</div><div class="meta">Nam Center for Korean Studies · Jan–May 2026</div></div>
-        <h3 style="font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--blue-soft);margin-bottom:16px;margin-top:36px">Practice Experience &amp; License</h3>
+        <h3 style="font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--blue-soft);margin-bottom:8px;margin-top:28px">Practice Experience &amp; License</h3>
         <div class="gp-item"><div class="title">National Certificate of 1st Grade Social Worker, South Korea</div><div class="meta">Credential ID 1-181359 · Issued November 2021</div></div>
         <div class="gp-item"><div class="title">Field Placement, Mapo-gu Local Security Council</div><div class="meta">Seoul, South Korea · 2020</div></div>
         <div class="gp-item"><div class="title">Field Placement, Seodaemun Senior Welfare Center</div><div class="meta">Seoul, South Korea · 2019</div></div>
         <div class="gp-item"><div class="title">Field Placement, Ewha Womans University Community Welfare Center</div><div class="meta">Seoul, South Korea · 2018</div></div>
       </div>
       <div>
-        <h3 style="font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--blue-soft);margin-bottom:16px">Service</h3>
+        <h3 style="font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--blue-soft);margin-bottom:8px">Service</h3>
         <div class="gp-item"><div class="title">First-gen Student Affinity Group, Co-chair</div><div class="meta">Department of Sociology · 2026–present</div></div>
         <div class="gp-item"><div class="title">Supervisory Committee, Student Representative</div><div class="meta">School of Social Work · 2025–present</div></div>
         <div class="gp-item"><div class="title">International MSW Policy Study Group, Leader/Facilitator</div><div class="meta">School of Social Work · Fall 2025</div></div>
@@ -410,6 +468,8 @@
         <a href="tel:+17342102741">734-210-2741</a>
         <div class="k">LinkedIn</div>
         <a href="https://www.linkedin.com/in/subinmin" target="_blank" rel="noopener">linkedin.com/in/subinmin</a>
+        <div class="k">Google Scholar</div>
+        <a href="https://scholar.google.com/citations?user=_nR33u8AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar profile</a>
         <div class="k">Office</div>
         <span>School of Social Work<br>1080 S University Ave<br>Ann Arbor, MI 48109</span>
         <div class="k">Curriculum Vitae</div>
