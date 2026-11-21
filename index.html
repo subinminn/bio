@@ -82,10 +82,11 @@
 
   /* ---- News ---- */
   .news .pub-item .yr{flex:0 0 76px;white-space:nowrap}
-  .news details summary{cursor:pointer;color:var(--blue-soft);font-size:14px;font-weight:600;margin-top:10px;list-style:none}
-  .news details summary::-webkit-details-marker{display:none}
-  .news details summary::before{content:"+ "}
-  .news details[open] summary::before{content:"− "}
+  .news .pub-item:nth-child(n+6){display:none}
+  .news.show-all .pub-item:nth-child(n+6){display:flex}
+  .news:not(.show-all) .pub-item:nth-child(5){border-bottom:none}
+  .more-btn{background:none;border:0;padding:0;margin-top:10px;font:inherit;cursor:pointer;color:var(--blue-soft);font-size:14px;font-weight:600}
+  .more-btn:hover{color:var(--blue)}
 
   /* ---- Research ---- */
   .interest-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
@@ -220,24 +221,20 @@
 <section class="block news" id="news">
   <div class="wrap">
     <div class="section-head"><span class="num">01</span><h2>News</h2></div>
-    <!-- To add news: copy one <li> line below to the TOP of the first list and edit the date and text.
-         Keep about 5 items in the first list; move older ones into the "More news" list. -->
-    <ul class="pub-list">
+    <!-- To add news: copy one <li> line below to the TOP of the list and edit the date and text.
+         The first 5 items are always shown; the rest appear when "More news" is clicked. -->
+    <ul class="pub-list" id="news-list">
       <li class="pub-item"><div class="yr">Mar 2027</div><div class="body">Invited to present “Beyond the Asset Poverty Line” at the Russell Sage Foundation Journal Authors' Conference on Wealth and Family Economics, New York.</div></li>
       <li class="pub-item"><div class="yr">Jan 2027</div><div class="body">Presenting CollegeBound Boost RCT findings on the wealth threshold effect at SSWR 2027, San Francisco.</div></li>
       <li class="pub-item"><div class="yr">2026</div><div class="body">Awarded the Karl C.K. Ma Endowed Graduate Scholarship, Rackham Graduate School.</div></li>
       <li class="pub-item"><div class="yr">Mar 2026</div><div class="body">New article on guaranteed income experiments in the U.S. published in <em>Global Social Security Review</em>.</div></li>
       <li class="pub-item"><div class="yr">Jan 2026</div><div class="body">Instructor of record for SW623, Child and Family Well-being: Macro Practice.</div></li>
+      <li class="pub-item"><div class="yr">Nov 2025</div><div class="body">Presented “Beyond the Balance,” a qualitative study of CollegeBound Saint Paul, at APPAM 2025, Seattle.</div></li>
+      <li class="pub-item"><div class="yr">Sep 2025</div><div class="body">Instructor of record for SW508, Essentials of Social Welfare Policy.</div></li>
+      <li class="pub-item"><div class="yr">2025</div><div class="body">Three co-authored articles on wealth building and asset poverty published in <em>Sociology Mind</em>.</div></li>
+      <li class="pub-item"><div class="yr">2025</div><div class="body">Awarded the Vivian A. and James L. Curtis Endowed Scholarship, School of Social Work.</div></li>
     </ul>
-    <details>
-      <summary>More news</summary>
-      <ul class="pub-list">
-        <li class="pub-item"><div class="yr">Nov 2025</div><div class="body">Presented “Beyond the Balance,” a qualitative study of CollegeBound Saint Paul, at APPAM 2025, Seattle.</div></li>
-        <li class="pub-item"><div class="yr">Sep 2025</div><div class="body">Instructor of record for SW508, Essentials of Social Welfare Policy.</div></li>
-        <li class="pub-item"><div class="yr">2025</div><div class="body">Three co-authored articles on wealth building and asset poverty published in <em>Sociology Mind</em>.</div></li>
-        <li class="pub-item"><div class="yr">2025</div><div class="body">Awarded the Vivian A. and James L. Curtis Endowed Scholarship, School of Social Work.</div></li>
-      </ul>
-    </details>
+    <button type="button" class="more-btn" aria-expanded="false" aria-controls="news-list">+ More news</button>
   </div>
 </section>
 
@@ -258,19 +255,19 @@
     <ul class="pub-list">
       <li class="pub-item">
         <div class="yr">—</div>
-        <div class="body">Min, S., O'Brien, M., Dombro, A., Jones-Layman, A., &amp; Elliott, W. How Incentive Structure Fosters Engagement in Children's Savings Account Program: A Thematic Analysis of Qualitative Interviews on CollegeBound Saint Paul.<span class="badge progress">In Preparation</span></div>
+        <div class="body"><strong>Min, S.</strong>, O'Brien, M., Dombro, A., Jones-Layman, A., &amp; Elliott, W. How Incentive Structure Fosters Engagement in Children's Savings Account Program: A Thematic Analysis of Qualitative Interviews on CollegeBound Saint Paul.<span class="badge progress">In Preparation</span></div>
       </li>
       <li class="pub-item">
         <div class="yr">—</div>
-        <div class="body">Yoo, N., Min, S., &amp; Yu, I. The Informal Navigator: Consumer AI Chatbot Use in Reddit Communities for U.S. Health and Social-Service Programs.<span class="badge review">Submitted</span></div>
+        <div class="body">Yoo, N., <strong>Min, S.</strong>, &amp; Yu, I. The Informal Navigator: Consumer AI Chatbot Use in Reddit Communities for U.S. Health and Social-Service Programs.<span class="badge review">Submitted</span></div>
       </li>
       <li class="pub-item">
         <div class="yr">—</div>
-        <div class="body">Yoo, N., Lee, J., Min, S., &amp; Kim, Y. Material Hardship and Livelihood Coping Strategies among Refugees in South Korea during COVID-19 Pandemic: The Role of Employment and Visa Status.<span class="badge review">In Revision</span></div>
+        <div class="body">Yoo, N., Lee, J., <strong>Min, S.</strong>, &amp; Kim, Y. Material Hardship and Livelihood Coping Strategies among Refugees in South Korea during COVID-19 Pandemic: The Role of Employment and Visa Status.<span class="badge review">In Revision</span></div>
       </li>
       <li class="pub-item">
         <div class="yr">2020</div>
-        <div class="body">Choi, S., Min, S.*, &amp; Lee, Y. (2020). A Study on the Inequality Trends of Current and Future Elderly: Focusing on Income and Assets by Cohort. <em>Korea Association of Social Policy</em>, 27(3), 45–76.
+        <div class="body">Choi, S., <strong>Min, S.*</strong>, &amp; Lee, Y. (2020). A Study on the Inequality Trends of Current and Future Elderly: Focusing on Income and Assets by Cohort. <em>Korea Association of Social Policy</em>, 27(3), 45–76.
           <a class="doi-btn" href="https://doi.org/10.17000/kspr.27.3.202009.45" title="View DOI" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="#12507e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
           </a>
@@ -280,14 +277,14 @@
 
     <div class="pub-sub">Books</div>
     <ul class="pub-list">
-      <li class="pub-item"><div class="yr">2026</div><div class="body">Elliott, W., Agyare, B. O., Zheng, H., Min, S., &amp; Elliott, M. (2026). <em>Beyond the Racial Wealth Gap: Structural Class Exclusion and the Case for a Social Mobility Revolution in America</em>. Scientific Research Publishing, Inc.</div></li>
+      <li class="pub-item"><div class="yr">2026</div><div class="body">Elliott, W., Agyare, B. O., Zheng, H., <strong>Min, S.</strong>, &amp; Elliott, M. (2026). <em>Beyond the Racial Wealth Gap: Structural Class Exclusion and the Case for a Social Mobility Revolution in America</em>. Scientific Research Publishing, Inc.</div></li>
     </ul>
 
     <div class="pub-sub">Other Publications</div>
     <ul class="pub-list">
       <li class="pub-item">
         <div class="yr">2026</div>
-        <div class="body">Min, S. (2026). Guaranteed income experiments in the United States and policy implications. <em>Global Social Security Review</em>, 36, 101–108.
+        <div class="body"><strong>Min, S.</strong> (2026). Guaranteed income experiments in the United States and policy implications. <em>Global Social Security Review</em>, 36, 101–108.
           <a class="doi-btn" href="https://doi.org/10.23063/2026.03.8" title="View DOI" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="#12507e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
           </a>
@@ -295,7 +292,7 @@
       </li>
       <li class="pub-item">
         <div class="yr">2025</div>
-        <div class="body">Elliott, W., Osafo Agyare, B., &amp; Min, S. (2025). Timing Wealth Building to Maximize Return on Degree. <em>Sociology Mind</em>, 15(4), 216–264.
+        <div class="body">Elliott, W., Osafo Agyare, B., &amp; <strong>Min, S.</strong> (2025). Timing Wealth Building to Maximize Return on Degree. <em>Sociology Mind</em>, 15(4), 216–264.
           <a class="doi-btn" href="https://doi.org/10.4236/sm.2025.154013" title="View DOI" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="#12507e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
           </a>
@@ -303,7 +300,7 @@
       </li>
       <li class="pub-item">
         <div class="yr">2025</div>
-        <div class="body">Elliott, W., Osafo Agyare, B., Zheng, H., &amp; Min, S. (2025). Redesigning Social Welfare: Presenting a New Asset Poverty Measure. <em>Sociology Mind</em>, 15(4), 265–325.
+        <div class="body">Elliott, W., Osafo Agyare, B., Zheng, H., &amp; <strong>Min, S.</strong> (2025). Redesigning Social Welfare: Presenting a New Asset Poverty Measure. <em>Sociology Mind</em>, 15(4), 265–325.
           <a class="doi-btn" href="https://doi.org/10.4236/sm.2025.154014" title="View DOI" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="#12507e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
           </a>
@@ -311,7 +308,7 @@
       </li>
       <li class="pub-item">
         <div class="yr">2025</div>
-        <div class="body">Elliott, W., Zheng, H., Osafo Agyare, B., &amp; Min, S. (2025). Testing a Social Welfare Theory of Financial Capability: Personal and Governmental Capabilities. <em>Sociology Mind</em>, 15(4), 326–367.
+        <div class="body">Elliott, W., Zheng, H., Osafo Agyare, B., &amp; <strong>Min, S.</strong> (2025). Testing a Social Welfare Theory of Financial Capability: Personal and Governmental Capabilities. <em>Sociology Mind</em>, 15(4), 326–367.
           <a class="doi-btn" href="https://doi.org/10.4236/sm.2025.154015" title="View DOI" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="#12507e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
           </a>
@@ -319,7 +316,7 @@
       </li>
       <li class="pub-item">
         <div class="yr">2024</div>
-        <div class="body">Elliott, W., Jones-Layman, A., Park, S., Min, S., &amp; O'Brien, M. (2024). What Are Characteristics of Tangible Hope? A Guaranteed Income and Asset Experiment in Saint Paul, MN/A Children's Savings Account Program. <em>Sociology Mind</em>, 14, 95–120.
+        <div class="body">Elliott, W., Jones-Layman, A., Park, S., <strong>Min, S.</strong>, &amp; O'Brien, M. (2024). What Are Characteristics of Tangible Hope? A Guaranteed Income and Asset Experiment in Saint Paul, MN/A Children's Savings Account Program. <em>Sociology Mind</em>, 14, 95–120.
           <a class="doi-btn" href="https://doi.org/10.4236/sm.2024.141006" title="View DOI" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="#12507e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
           </a>
@@ -329,19 +326,19 @@
 
     <div class="pub-sub">Policy Briefs &amp; Reports</div>
     <ul class="pub-list">
-      <li class="pub-item"><div class="yr">2024</div><div class="body">Elliott, W., Sorensen, N., O'Brien, M., &amp; Min, S. (2024). Impact of Income and Assets on Parents' Educational Expectations: CollegeBound Boost Saint Paul, Implications for Ending Poverty. [Policy Brief]. In <em>Using Wealth and Income Policies to Forge a New Social Contract: Giving People Something to Live For</em>. University of Michigan, School of Social Work, Center on Assets, Education, and Inclusion.</div></li>
-      <li class="pub-item"><div class="yr">2022</div><div class="body">Kim, M. &amp; Min, S. (2022). A Study on Measures to Improve Housing Support Policies for the Homeless in Seoul: Focusing on the Case Management for Public Rental Housing. Seoul Welfare Foundation.</div></li>
-      <li class="pub-item"><div class="yr">2022</div><div class="body">Kim, M. &amp; Min, S. (2022). A Study on the Development of Evaluation Indicators for the At-home Senior Support Service Center in Seoul. Seoul Welfare Foundation.</div></li>
-      <li class="pub-item"><div class="yr">2021</div><div class="body">Yoo, B., Lee, C., Seo, S., et al., &amp; Min, S. (2021). A Study on Discovering and Resolving Blind Spots in Incheon's Welfare: Focusing on the COVID-19 Situation. Incheon Welfare Foundation.</div></li>
-      <li class="pub-item"><div class="yr">2020</div><div class="body">Kim, J., Seo, K., Kim, J., Kang, M., Min, S., et al., &amp; Hwang, S. (2020). 2020 Social Welfare Indicators in Mapo-gu. Sechang Publish.</div></li>
+      <li class="pub-item"><div class="yr">2024</div><div class="body">Elliott, W., Sorensen, N., O'Brien, M., &amp; <strong>Min, S.</strong> (2024). Impact of Income and Assets on Parents' Educational Expectations: CollegeBound Boost Saint Paul, Implications for Ending Poverty. [Policy Brief]. In <em>Using Wealth and Income Policies to Forge a New Social Contract: Giving People Something to Live For</em>. University of Michigan, School of Social Work, Center on Assets, Education, and Inclusion.</div></li>
+      <li class="pub-item"><div class="yr">2022</div><div class="body">Kim, M. &amp; <strong>Min, S.</strong> (2022). A Study on Measures to Improve Housing Support Policies for the Homeless in Seoul: Focusing on the Case Management for Public Rental Housing. Seoul Welfare Foundation.</div></li>
+      <li class="pub-item"><div class="yr">2022</div><div class="body">Kim, M. &amp; <strong>Min, S.</strong> (2022). A Study on the Development of Evaluation Indicators for the At-home Senior Support Service Center in Seoul. Seoul Welfare Foundation.</div></li>
+      <li class="pub-item"><div class="yr">2021</div><div class="body">Yoo, B., Lee, C., Seo, S., et al., &amp; <strong>Min, S.</strong> (2021). A Study on Discovering and Resolving Blind Spots in Incheon's Welfare: Focusing on the COVID-19 Situation. Incheon Welfare Foundation.</div></li>
+      <li class="pub-item"><div class="yr">2020</div><div class="body">Kim, J., Seo, K., Kim, J., Kang, M., <strong>Min, S.</strong>, et al., &amp; Hwang, S. (2020). 2020 Social Welfare Indicators in Mapo-gu. Sechang Publish.</div></li>
     </ul>
 
     <div class="pub-sub">Selected Conference Presentations</div>
     <ul class="pub-list">
-      <li class="pub-item"><div class="yr">2027</div><div class="body">Min, S. (2027). Beyond the Asset Poverty Line: How Much Wealth Protects Consumption When Income Falls. RSF Journal Authors' Conference on Wealth and Family Economics, Russell Sage Foundation, March 19, New York, NY.<span class="badge review">Invited</span></div></li>
-      <li class="pub-item"><div class="yr">2027</div><div class="body">Elliott, W., Zheng, H., &amp; Min, S. (2027). The Wealth Threshold Effect on College Saving Behavior: CollegeBound Boost Randomized Control Trial (RCT) Study. Society for Social Work and Research (SSWR) 2027, January 20–24, San Francisco, CA.</div></li>
-      <li class="pub-item"><div class="yr">2025</div><div class="body">Min, S., O'Brien, M., Dombro, A., Jones-Layman, A., &amp; Elliott, W. (2025). Beyond the Balance: A Qualitative Study of How Incentive Structure Fosters Engagement in CollegeBound Saint Paul. Association for Public Policy Analysis and Management (APPAM) 2025, November 13–15, Seattle, WA.</div></li>
-      <li class="pub-item"><div class="yr">2024</div><div class="body">Min, S. (2024). Unpacking the Shift of the “M-shaped Curve” in South Korea: Exploring the Change of Mothers' Return-to-Work over Time. Population Association of America (PAA) 2024, April 17–20, Columbus, OH.</div></li>
+      <li class="pub-item"><div class="yr">2027</div><div class="body"><strong>Min, S.</strong> (2027). Beyond the Asset Poverty Line: How Much Wealth Protects Consumption When Income Falls. RSF Journal Authors' Conference on Wealth and Family Economics, Russell Sage Foundation, March 19, New York, NY.<span class="badge review">Invited</span></div></li>
+      <li class="pub-item"><div class="yr">2027</div><div class="body">Elliott, W., Zheng, H., &amp; <strong>Min, S.</strong> (2027). The Wealth Threshold Effect on College Saving Behavior: CollegeBound Boost Randomized Control Trial (RCT) Study. Society for Social Work and Research (SSWR) 2027, January 20–24, San Francisco, CA.</div></li>
+      <li class="pub-item"><div class="yr">2025</div><div class="body"><strong>Min, S.</strong>, O'Brien, M., Dombro, A., Jones-Layman, A., &amp; Elliott, W. (2025). Beyond the Balance: A Qualitative Study of How Incentive Structure Fosters Engagement in CollegeBound Saint Paul. Association for Public Policy Analysis and Management (APPAM) 2025, November 13–15, Seattle, WA.</div></li>
+      <li class="pub-item"><div class="yr">2024</div><div class="body"><strong>Min, S.</strong> (2024). Unpacking the Shift of the “M-shaped Curve” in South Korea: Exploring the Change of Mothers' Return-to-Work over Time. Population Association of America (PAA) 2024, April 17–20, Columbus, OH.</div></li>
     </ul>
   </div>
 </section>
@@ -472,5 +469,18 @@
   </div>
 </section>
 
+<script>
+  (function () {
+    var btn = document.querySelector('.news .more-btn');
+    var news = document.getElementById('news');
+    if (!btn || !news) return;
+    if (news.querySelectorAll('.pub-item').length <= 5) { btn.hidden = true; return; }
+    btn.addEventListener('click', function () {
+      var open = news.classList.toggle('show-all');
+      btn.setAttribute('aria-expanded', open);
+      btn.textContent = open ? '− Show less' : '+ More news';
+    });
+  })();
+</script>
 </body>
 </html>
